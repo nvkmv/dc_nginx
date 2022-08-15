@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  proxy:
+    image: nginx:stable      
+    container_name: nginx
+    restart: unless-stopped
+    ports: 
+      - 80:80
+    volumes:
+      - ./logs:/var/log/nginx
+      - ./nginx-config/redirect.conf:/etc/nginx/conf.d/redirect.conf
